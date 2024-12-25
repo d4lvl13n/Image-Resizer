@@ -1,0 +1,311 @@
+// !$*UTF8*$!
+{
+  archiveVersion = 1;
+  classes = {
+  };
+  objectVersion = 55;
+  objects = {
+
+/* Begin PBXBuildFile section */
+  AAAAAAAA1111111111111111 /* ContentView.swift in Sources */ = {
+    isa = PBXBuildFile;
+    fileRef = AAAAAAAA2222222222222222 /* ContentView.swift */;
+  };
+  AAAAAAAA3333333333333333 /* ImageBatchWebPConverterApp.swift in Sources */ = {
+    isa = PBXBuildFile;
+    fileRef = AAAAAAAA4444444444444444 /* ImageBatchWebPConverterApp.swift */;
+  };
+  AAAAAAAA5555555555555555 /* Assets.xcassets in Resources */ = {
+    isa = PBXBuildFile;
+    fileRef = AAAAAAAA6666666666666666 /* Assets.xcassets */;
+  };
+  /* End PBXBuildFile section */
+
+  /* Begin PBXFileReference section */
+  AAAAAAAA7777777777777777 /* ImageBatchWebPConverter.app */ = {
+    isa = PBXFileReference;
+    explicitFileType = wrapper.application;
+    includeInIndex = 0;
+    path = ImageBatchWebPConverter.app;
+    sourceTree = BUILT_PRODUCTS_DIR;
+  };
+  AAAAAAAA2222222222222222 /* ContentView.swift */ = {
+    isa = PBXFileReference;
+    lastKnownFileType = sourcecode.swift;
+    path = ContentView.swift;
+    sourceTree = "<group>";
+  };
+  AAAAAAAA4444444444444444 /* ImageBatchWebPConverterApp.swift */ = {
+    isa = PBXFileReference;
+    lastKnownFileType = sourcecode.swift;
+    path = ImageBatchWebPConverterApp.swift;
+    sourceTree = "<group>";
+  };
+  AAAAAAAA6666666666666666 /* Assets.xcassets */ = {
+    isa = PBXFileReference;
+    lastKnownFileType = folder.assetcatalog;
+    path = Assets.xcassets;
+    sourceTree = "<group>";
+  };
+  AAAAAAAA8888888888888888 /* Info.plist */ = {
+    isa = PBXFileReference;
+    lastKnownFileType = text.plist.xml;
+    path = Info.plist;
+    sourceTree = "<group>";
+  };
+  AAAAAAAA9999999999999999 /* ImageBatchWebPConverter.entitlements */ = {
+    isa = PBXFileReference;
+    lastKnownFileType = text.plist.entitlements;
+    path = ImageBatchWebPConverter.entitlements;
+    sourceTree = "<group>";
+  };
+  /* End PBXFileReference section */
+
+  /* Begin PBXFrameworksBuildPhase section */
+  BBBBBBBB1111111111111111 /* Frameworks */ = {
+    isa = PBXFrameworksBuildPhase;
+    buildActionMask = 2147483647;
+    files = (
+    );
+    runOnlyForDeploymentPostprocessing = 0;
+  };
+  /* End PBXFrameworksBuildPhase section */
+
+  /* Begin PBXGroup section */
+  BBBBBBBB2222222222222222 = {
+    isa = PBXGroup;
+    children = (
+      BBBBBBBB3333333333333333 /* ImageBatchWebPConverter */,
+      BBBBBBBB4444444444444444 /* Products */,
+    );
+    sourceTree = "<group>";
+  };
+  BBBBBBBB4444444444444444 /* Products */ = {
+    isa = PBXGroup;
+    children = (
+      AAAAAAAA7777777777777777 /* ImageBatchWebPConverter.app */,
+    );
+    name = Products;
+    sourceTree = "<group>";
+  };
+  BBBBBBBB3333333333333333 /* ImageBatchWebPConverter */ = {
+    isa = PBXGroup;
+    children = (
+      AAAAAAAA9999999999999999 /* ImageBatchWebPConverter.entitlements */,
+      AAAAAAAA4444444444444444 /* ImageBatchWebPConverterApp.swift */,
+      AAAAAAAA2222222222222222 /* ContentView.swift */,
+      AAAAAAAA6666666666666666 /* Assets.xcassets */,
+      AAAAAAAA8888888888888888 /* Info.plist */,
+    );
+    path = ImageBatchWebPConverter;
+    sourceTree = "<group>";
+  };
+  /* End PBXGroup section */
+
+  /* Begin PBXNativeTarget section */
+  CCCCCCCC1111111111111111 /* ImageBatchWebPConverter */ = {
+    isa = PBXNativeTarget;
+    buildConfigurationList = CCCCCCCC2222222222222222;
+    buildPhases = (
+      CCCCCCCC3333333333333333 /* Sources */,
+      BBBBBBBB1111111111111111 /* Frameworks */,
+      CCCCCCCC4444444444444444 /* Resources */,
+    );
+    buildRules = (
+    );
+    dependencies = (
+    );
+    name = ImageBatchWebPConverter;
+    productName = ImageBatchWebPConverter;
+    productReference = AAAAAAAA7777777777777777 /* ImageBatchWebPConverter.app */;
+    productType = "com.apple.product-type.application";
+  };
+  /* End PBXNativeTarget section */
+
+  /* Begin PBXProject section */
+  DDDDDDDD1111111111111111 /* Project object */ = {
+    isa = PBXProject;
+    attributes = {
+      LastSwiftUpdateCheck = 1500;
+      LastUpgradeCheck = 1500;
+      TargetAttributes = {
+        CCCCCCCC1111111111111111 = {
+          CreatedOnToolsVersion = 15.0;
+          LastSwiftMigration = 1500;
+        };
+      };
+    };
+    buildConfigurationList = DDDDDDDD2222222222222222;
+    compatibilityVersion = "Xcode 13.0";
+    developmentRegion = en;
+    hasScannedForEncodings = 0;
+    knownRegions = (
+      en,
+      Base,
+    );
+    mainGroup = BBBBBBBB2222222222222222;
+    productRefGroup = BBBBBBBB4444444444444444 /* Products */;
+    projectDirPath = "";
+    projectRoot = "";
+    targets = (
+      CCCCCCCC1111111111111111 /* ImageBatchWebPConverter */,
+    );
+  };
+  /* End PBXProject section */
+
+  /* Begin PBXResourcesBuildPhase section */
+  CCCCCCCC4444444444444444 /* Resources */ = {
+    isa = PBXResourcesBuildPhase;
+    buildActionMask = 2147483647;
+    files = (
+      AAAAAAAA5555555555555555 /* Assets.xcassets in Resources */,
+    );
+    runOnlyForDeploymentPostprocessing = 0;
+  };
+  /* End PBXResourcesBuildPhase section */
+
+  /* Begin PBXSourcesBuildPhase section */
+  CCCCCCCC3333333333333333 /* Sources */ = {
+    isa = PBXSourcesBuildPhase;
+    buildActionMask = 2147483647;
+    files = (
+      AAAAAAAA1111111111111111 /* ContentView.swift in Sources */,
+      AAAAAAAA3333333333333333 /* ImageBatchWebPConverterApp.swift in Sources */,
+    );
+    runOnlyForDeploymentPostprocessing = 0;
+  };
+  /* End PBXSourcesBuildPhase section */
+
+  /* Begin XCBuildConfiguration section */
+  EEEEEEEE1111111111111111 /* Debug */ = {
+    isa = XCBuildConfiguration;
+    buildSettings = {
+      ALWAYS_SEARCH_USER_PATHS = NO;
+      CLANG_ANALYZER_NONNULL = YES;
+      CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+      CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+      CLANG_ENABLE_MODULES = YES;
+      CLANG_ENABLE_OBJC_ARC = YES;
+      CLANG_ENABLE_OBJC_WEAK = YES;
+      CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+      CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+      COPY_PHASE_STRIP = NO;
+      DEBUG_INFORMATION_FORMAT = dwarf;
+      ENABLE_STRICT_OBJC_MSGSEND = YES;
+      ENABLE_TESTABILITY = YES;
+      GCC_OPTIMIZATION_LEVEL = 0;
+      GCC_PREPROCESSOR_DEFINITIONS = (
+        "DEBUG=1",
+        "$(inherited)",
+      );
+      MACOSX_DEPLOYMENT_TARGET = 11.0;
+      MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+      MTL_FAST_MATH = YES;
+      ONLY_ACTIVE_ARCH = YES;
+      SDKROOT = macosx;
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+      SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+    };
+    name = Debug;
+  };
+  EEEEEEEE2222222222222222 /* Release */ = {
+    isa = XCBuildConfiguration;
+    buildSettings = {
+      ALWAYS_SEARCH_USER_PATHS = NO;
+      CLANG_ANALYZER_NONNULL = YES;
+      CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+      CLANG_ENABLE_MODULES = YES;
+      CLANG_ENABLE_OBJC_ARC = YES;
+      COPY_PHASE_STRIP = NO;
+      DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+      ENABLE_NS_ASSERTIONS = NO;
+      ENABLE_STRICT_OBJC_MSGSEND = YES;
+      GCC_OPTIMIZATION_LEVEL = s;
+      MACOSX_DEPLOYMENT_TARGET = 11.0;
+      MTL_ENABLE_DEBUG_INFO = NO;
+      MTL_FAST_MATH = YES;
+      SDKROOT = macosx;
+      SWIFT_COMPILATION_MODE = wholemodule;
+      SWIFT_OPTIMIZATION_LEVEL = "-O";
+    };
+    name = Release;
+  };
+  EEEEEEEE3333333333333333 /* Debug */ = {
+    isa = XCBuildConfiguration;
+    buildSettings = {
+      ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+      ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+      CODE_SIGN_ENTITLEMENTS = ImageBatchWebPConverter/ImageBatchWebPConverter.entitlements;
+      CODE_SIGN_STYLE = Automatic;
+      COMBINE_HIDPI_IMAGES = YES;
+      CURRENT_PROJECT_VERSION = 1;
+      DEVELOPMENT_TEAM = "";
+      ENABLE_HARDENED_RUNTIME = YES;
+      ENABLE_PREVIEWS = YES;
+      GENERATE_INFOPLIST_FILE = YES;
+      INFOPLIST_FILE = ImageBatchWebPConverter/Info.plist;
+      INFOPLIST_KEY_NSHumanReadableCopyright = "";
+      LD_RUNPATH_SEARCH_PATHS = (
+        "$(inherited)",
+        "@executable_path/../Frameworks",
+      );
+      MARKETING_VERSION = 1.0;
+      PRODUCT_BUNDLE_IDENTIFIER = "com.example.ImageBatchWebPConverter";
+      PRODUCT_NAME = "$(TARGET_NAME)";
+      SWIFT_EMIT_LOC_STRINGS = YES;
+      SWIFT_VERSION = 5.0;
+    };
+    name = Debug;
+  };
+  EEEEEEEE4444444444444444 /* Release */ = {
+    isa = XCBuildConfiguration;
+    buildSettings = {
+      ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+      ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+      CODE_SIGN_ENTITLEMENTS = ImageBatchWebPConverter/ImageBatchWebPConverter.entitlements;
+      CODE_SIGN_STYLE = Automatic;
+      COMBINE_HIDPI_IMAGES = YES;
+      CURRENT_PROJECT_VERSION = 1;
+      DEVELOPMENT_TEAM = "";
+      ENABLE_HARDENED_RUNTIME = YES;
+      ENABLE_PREVIEWS = YES;
+      GENERATE_INFOPLIST_FILE = YES;
+      INFOPLIST_FILE = ImageBatchWebPConverter/Info.plist;
+      INFOPLIST_KEY_NSHumanReadableCopyright = "";
+      LD_RUNPATH_SEARCH_PATHS = (
+        "$(inherited)",
+        "@executable_path/../Frameworks",
+      );
+      MARKETING_VERSION = 1.0;
+      PRODUCT_BUNDLE_IDENTIFIER = "com.example.ImageBatchWebPConverter";
+      PRODUCT_NAME = "$(TARGET_NAME)";
+      SWIFT_EMIT_LOC_STRINGS = YES;
+      SWIFT_VERSION = 5.0;
+    };
+    name = Release;
+  };
+  /* End XCBuildConfiguration section */
+
+  /* Begin XCConfigurationList section */
+  DDDDDDDD2222222222222222 /* Build configuration list for PBXProject "ImageBatchWebPConverter" */ = {
+    isa = XCConfigurationList;
+    buildConfigurations = (
+      EEEEEEEE1111111111111111 /* Debug */,
+      EEEEEEEE2222222222222222 /* Release */,
+    );
+    defaultConfigurationIsVisible = 0;
+    defaultConfigurationName = Release;
+  };
+  CCCCCCCC2222222222222222 /* Build configuration list for PBXNativeTarget "ImageBatchWebPConverter" */ = {
+    isa = XCConfigurationList;
+    buildConfigurations = (
+      EEEEEEEE3333333333333333 /* Debug */,
+      EEEEEEEE4444444444444444 /* Release */,
+    );
+    defaultConfigurationIsVisible = 0;
+    defaultConfigurationName = Release;
+  };
+  /* End XCConfigurationList section */
+};
+rootObject = DDDDDDDD1111111111111111 /* Project object */;
+}
