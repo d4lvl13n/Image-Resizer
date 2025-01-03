@@ -30,6 +30,169 @@
 
   ],
   "swiftCommands" : {
+    "C.Components-arm64-apple-macosx14.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/sources",
+      "importPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/AnalysisMetricsBar.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/ComparisonToolbar.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/DetailRow.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/HSplitter.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/ImageSliderView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/ImageView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/MetricBadge.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/StatCard.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules/Utils.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules/Models.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "Components",
+      "moduleOutputPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules/Components.swiftmodule",
+      "objects" : [
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/AnalysisMetricsBar.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/ComparisonToolbar.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/DetailRow.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/HSplitter.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/ImageSliderView.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/ImageView.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/MetricBadge.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/StatCard.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx12.0",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/Components-Swift.h",
+        "-color-diagnostics",
+        "-swift-version",
+        "5",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g"
+      ],
+      "outputFileMapPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/AnalysisMetricsBar.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/ComparisonToolbar.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/DetailRow.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/HSplitter.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/ImageSliderView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/ImageView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/MetricBadge.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/StatCard.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules/Components.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/AnalysisMetricsBar.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/ComparisonToolbar.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/DetailRow.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/HSplitter.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/ImageSliderView.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/ImageView.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/MetricBadge.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/StatCard.swift"
+      ],
+      "tempsPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build",
+      "wholeModuleOptimization" : false
+    },
     "C.ImageBatchWebPConverter-arm64-apple-macosx14.0-debug.module" : {
       "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
       "fileList" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/sources",
@@ -37,51 +200,51 @@
       "inputs" : [
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ComparisonImagesView.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/App.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ComparisonToolbar.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/AppDelegate.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ContentView.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Comparison/ComparisonImagesView.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ImageAnalyzer.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Comparison/ComparisonToolbar.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ImageComparisonView.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Comparison/ImageComparisonView.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/OptimizationPreset.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Statistics/EnhancedStatisticsPanel.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/SmartOptimizationView.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/AnalysisVisualizerView.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/StatisticsPanel.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/AppMenu.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/SuccessPopup.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/ContentView.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/SupportingViews.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/SmartOptimizationView.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utilities.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/SuccessPopup.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/main.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/SupportingViews.swift"
         },
         {
           "kind" : "file",
@@ -97,6 +260,18 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules/Models.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules/Utils.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules/Components.swiftmodule"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/sources"
         }
       ],
@@ -104,18 +279,18 @@
       "moduleName" : "ImageBatchWebPConverter",
       "moduleOutputPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules/ImageBatchWebPConverter.swiftmodule",
       "objects" : [
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/App.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/AppDelegate.swift.o",
         "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/ComparisonImagesView.swift.o",
         "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/ComparisonToolbar.swift.o",
-        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/ContentView.swift.o",
-        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/ImageAnalyzer.swift.o",
         "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/ImageComparisonView.swift.o",
-        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/OptimizationPreset.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/EnhancedStatisticsPanel.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/AnalysisVisualizerView.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/AppMenu.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/ContentView.swift.o",
         "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/SmartOptimizationView.swift.o",
-        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/StatisticsPanel.swift.o",
         "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/SuccessPopup.swift.o",
         "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/SupportingViews.swift.o",
-        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/Utilities.swift.o",
-        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/main.swift.o",
         "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/resource_bundle_accessor.swift.o"
       ],
       "otherArguments" : [
@@ -165,6 +340,14 @@
       "outputs" : [
         {
           "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/App.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/AppDelegate.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/ComparisonImagesView.swift.o"
         },
         {
@@ -173,27 +356,27 @@
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/ContentView.swift.o"
-        },
-        {
-          "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/ImageAnalyzer.swift.o"
-        },
-        {
-          "kind" : "file",
           "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/ImageComparisonView.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/OptimizationPreset.swift.o"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/EnhancedStatisticsPanel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/AnalysisVisualizerView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/AppMenu.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/ContentView.swift.o"
         },
         {
           "kind" : "file",
           "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/SmartOptimizationView.swift.o"
-        },
-        {
-          "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/StatisticsPanel.swift.o"
         },
         {
           "kind" : "file",
@@ -202,14 +385,6 @@
         {
           "kind" : "file",
           "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/SupportingViews.swift.o"
-        },
-        {
-          "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/Utilities.swift.o"
-        },
-        {
-          "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/main.swift.o"
         },
         {
           "kind" : "file",
@@ -222,21 +397,285 @@
       ],
       "prepareForIndexing" : false,
       "sources" : [
-        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ComparisonImagesView.swift",
-        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ComparisonToolbar.swift",
-        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ContentView.swift",
-        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ImageAnalyzer.swift",
-        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ImageComparisonView.swift",
-        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/OptimizationPreset.swift",
-        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/SmartOptimizationView.swift",
-        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/StatisticsPanel.swift",
-        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/SuccessPopup.swift",
-        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/SupportingViews.swift",
-        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utilities.swift",
-        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/main.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/App.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/AppDelegate.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Comparison/ComparisonImagesView.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Comparison/ComparisonToolbar.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Comparison/ImageComparisonView.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Statistics/EnhancedStatisticsPanel.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/AnalysisVisualizerView.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/AppMenu.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/ContentView.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/SmartOptimizationView.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/SuccessPopup.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/SupportingViews.swift",
         "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/DerivedSources/resource_bundle_accessor.swift"
       ],
       "tempsPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.Models-arm64-apple-macosx14.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build/sources",
+      "importPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Models/ComparisonMode.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Models/ImageContentType.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Models/OptimizationPreset.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "Models",
+      "moduleOutputPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules/Models.swiftmodule",
+      "objects" : [
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build/ComparisonMode.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build/ImageContentType.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build/OptimizationPreset.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx12.0",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build/Models-Swift.h",
+        "-color-diagnostics",
+        "-swift-version",
+        "5",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g"
+      ],
+      "outputFileMapPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build/ComparisonMode.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build/ImageContentType.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build/OptimizationPreset.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules/Models.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Models/ComparisonMode.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Models/ImageContentType.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Models/OptimizationPreset.swift"
+      ],
+      "tempsPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.Utils-arm64-apple-macosx14.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/sources",
+      "importPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ColorAnalyzer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ImageAnalysis.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ImageAnalyzer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ImageDetails.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ImageLoader.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/Utilities.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/Utils.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/WindowManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules/Models.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "Utils",
+      "moduleOutputPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules/Utils.swiftmodule",
+      "objects" : [
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/ColorAnalyzer.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/ImageAnalysis.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/ImageAnalyzer.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/ImageDetails.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/ImageLoader.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/Utilities.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/Utils.swift.o",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/WindowManager.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx12.0",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/Utils-Swift.h",
+        "-color-diagnostics",
+        "-swift-version",
+        "5",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g"
+      ],
+      "outputFileMapPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/ColorAnalyzer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/ImageAnalysis.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/ImageAnalyzer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/ImageDetails.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/ImageLoader.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/Utilities.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/Utils.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/WindowManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules/Utils.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ColorAnalyzer.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ImageAnalysis.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ImageAnalyzer.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ImageDetails.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ImageLoader.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/Utilities.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/Utils.swift",
+        "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/WindowManager.swift"
+      ],
+      "tempsPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build",
       "wholeModuleOptimization" : false
     }
   },
@@ -244,24 +683,84 @@
 
   },
   "swiftTargetScanArgs" : {
+    "Components" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "Components",
+      "-incremental",
+      "-c",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/AnalysisMetricsBar.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/ComparisonToolbar.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/DetailRow.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/HSplitter.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/ImageSliderView.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/ImageView.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/MetricBadge.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/StatCard.swift",
+      "-I",
+      "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx12.0",
+      "-enable-batch-mode",
+      "-index-store-path",
+      "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-module-cache-path",
+      "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/Components-Swift.h",
+      "-color-diagnostics",
+      "-swift-version",
+      "5",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
     "ImageBatchWebPConverter" : [
       "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
       "-module-name",
       "ImageBatchWebPConverter",
       "-incremental",
       "-c",
-      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ComparisonImagesView.swift",
-      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ComparisonToolbar.swift",
-      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ContentView.swift",
-      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ImageAnalyzer.swift",
-      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ImageComparisonView.swift",
-      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/OptimizationPreset.swift",
-      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/SmartOptimizationView.swift",
-      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/StatisticsPanel.swift",
-      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/SuccessPopup.swift",
-      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/SupportingViews.swift",
-      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utilities.swift",
-      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/main.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/App.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/AppDelegate.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Comparison/ComparisonImagesView.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Comparison/ComparisonToolbar.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Comparison/ImageComparisonView.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Statistics/EnhancedStatisticsPanel.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/AnalysisVisualizerView.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/AppMenu.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/ContentView.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/SmartOptimizationView.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/SuccessPopup.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/SupportingViews.swift",
       "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/DerivedSources/resource_bundle_accessor.swift",
       "-I",
       "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules",
@@ -308,11 +807,138 @@
       "-g",
       "-driver-use-frontend-path",
       "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "Models" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "Models",
+      "-incremental",
+      "-c",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Models/ComparisonMode.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Models/ImageContentType.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Models/OptimizationPreset.swift",
+      "-I",
+      "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx12.0",
+      "-enable-batch-mode",
+      "-index-store-path",
+      "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-module-cache-path",
+      "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build/Models-Swift.h",
+      "-color-diagnostics",
+      "-swift-version",
+      "5",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "Utils" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "Utils",
+      "-incremental",
+      "-c",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ColorAnalyzer.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ImageAnalysis.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ImageAnalyzer.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ImageDetails.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ImageLoader.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/Utilities.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/Utils.swift",
+      "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/WindowManager.swift",
+      "-I",
+      "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx12.0",
+      "-enable-batch-mode",
+      "-index-store-path",
+      "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-module-cache-path",
+      "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/Utils-Swift.h",
+      "-color-diagnostics",
+      "-swift-version",
+      "5",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
     ]
   },
   "targetDependencyMap" : {
+    "Components" : [
+      "Utils",
+      "Models"
+    ],
     "ImageBatchWebPConverter" : [
+      "Components",
+      "Utils",
+      "Models"
+    ],
+    "Models" : [
 
+    ],
+    "Utils" : [
+      "Models"
     ]
   },
   "testDiscoveryCommands" : {
@@ -322,6 +948,48 @@
 
   },
   "writeCommands" : {
+    "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/AnalysisMetricsBar.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/ComparisonToolbar.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/DetailRow.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/HSplitter.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/ImageSliderView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/ImageView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/MetricBadge.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/StatCard.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/sources"
+    },
     "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter-entitlement.plist" : {
       "alwaysOutOfDate" : false,
       "inputs" : [
@@ -345,51 +1013,51 @@
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ComparisonImagesView.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/App.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ComparisonToolbar.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/AppDelegate.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ContentView.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Comparison/ComparisonImagesView.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ImageAnalyzer.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Comparison/ComparisonToolbar.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/ImageComparisonView.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Comparison/ImageComparisonView.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/OptimizationPreset.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Statistics/EnhancedStatisticsPanel.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/SmartOptimizationView.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/AnalysisVisualizerView.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/StatisticsPanel.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/AppMenu.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/SuccessPopup.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/ContentView.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/SupportingViews.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/SmartOptimizationView.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utilities.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/SuccessPopup.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/main.swift"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/SupportingViews.swift"
         },
         {
           "kind" : "file",
@@ -407,6 +1075,54 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/AnalysisMetricsBar.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/ComparisonToolbar.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/DetailRow.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/HSplitter.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/ImageSliderView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/ImageView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/MetricBadge.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/StatCard.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/AnalysisVisualizerView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/App.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/AppDelegate.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/AppMenu.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/ComparisonImagesView.swift.o"
         },
         {
@@ -419,7 +1135,7 @@
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/ImageAnalyzer.swift.o"
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/EnhancedStatisticsPanel.swift.o"
         },
         {
           "kind" : "file",
@@ -427,15 +1143,7 @@
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/OptimizationPreset.swift.o"
-        },
-        {
-          "kind" : "file",
           "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/SmartOptimizationView.swift.o"
-        },
-        {
-          "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/StatisticsPanel.swift.o"
         },
         {
           "kind" : "file",
@@ -447,18 +1155,76 @@
         },
         {
           "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/Utilities.swift.o"
-        },
-        {
-          "kind" : "file",
-          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/main.swift.o"
-        },
-        {
-          "kind" : "file",
           "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/resource_bundle_accessor.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build/ComparisonMode.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build/ImageContentType.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build/OptimizationPreset.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/ColorAnalyzer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/ImageAnalysis.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/ImageAnalyzer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/ImageDetails.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/ImageLoader.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/Utilities.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/Utils.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/WindowManager.swift.o"
         }
       ],
       "outputFilePath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.product/Objects.LinkFileList"
+    },
+    "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Models/ComparisonMode.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Models/ImageContentType.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Models/OptimizationPreset.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build/sources"
     },
     "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
       "alwaysOutOfDate" : true,
@@ -473,6 +1239,48 @@
         }
       ],
       "outputFilePath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    },
+    "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ColorAnalyzer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ImageAnalysis.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ImageAnalyzer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ImageDetails.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ImageLoader.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/Utilities.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/Utils.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/WindowManager.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/sources"
     }
   }
 }

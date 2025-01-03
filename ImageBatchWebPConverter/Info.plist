@@ -3,10 +3,6 @@
                       "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>CFBundleDevelopmentRegion</key>
-    <string>en</string>
-    <key>CFBundleExecutable</key>
-    <string>ImageBatchWebPConverter</string>
     <key>CFBundleIdentifier</key>
     <string>com.example.ImageBatchWebPConverter</string>
     <key>CFBundleName</key>
@@ -15,10 +11,12 @@
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
     <string>1.0</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>12.0</string>
     <key>CFBundleVersion</key>
     <string>1</string>
-    <key>LSMinimumSystemVersion</key>
-    <string>11.0</string>
+    <key>CFBundleExecutable</key>
+    <string>ImageBatchWebPConverter</string>
     <key>NSHighResolutionCapable</key>
     <true/>
     <key>NSPrincipalClass</key>
@@ -28,17 +26,10 @@
     <string>This app needs access to folders to batch-convert images.</string>
     <key>NSDownloadsFolderUsageDescription</key>
     <string>This app needs access to folders to batch-convert images.</string>
-    <!-- Additional permissions -->
     <key>NSDesktopFolderUsageDescription</key>
     <string>This app needs access to folders to batch-convert images.</string>
-    <!-- Sandbox settings -->
-    <key>com.apple.security.files.user-selected.read-write</key>
-    <true/>
     <!-- App settings -->
     <key>LSApplicationCategoryType</key>
     <string>public.app-category.graphics-design</string>
-    <!-- Window settings -->
-    <key>NSRequiresAquaSystemAppearance</key>
-    <false/>
   </dict>
 </plist>
