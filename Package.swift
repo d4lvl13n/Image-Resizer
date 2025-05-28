@@ -33,9 +33,10 @@ let package = Package(
             name: "ImageBatchWebPConverter",
             dependencies: ["Models", "Utils", "Components"],
             path: "Sources/ImageBatchWebPConverter",
-            exclude: ["Models", "Utils", "Components"],
+            exclude: ["Models", "Utils", "Components", "Resources/Info.plist"],
             resources: [
-                .copy("Resources/cwebp")
+                .copy("Resources/cwebp"),
+                .copy("Resources/AppIcon.icns")
             ]
         )
     ]

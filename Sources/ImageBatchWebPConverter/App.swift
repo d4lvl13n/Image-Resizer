@@ -3,10 +3,15 @@ import SwiftUI
 @main
 struct ImageBatchWebPConverterApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if !hasSeenOnboarding {
+                OnboardingView()
+            } else {
+                ContentView()
+            }
         }
         .commands {
             AppMenu()

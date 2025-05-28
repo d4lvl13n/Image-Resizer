@@ -7,6 +7,11 @@
 /Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/AnalysisVisualizerView.swift
 /Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/AppMenu.swift
 /Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/ContentView.swift
+/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/DragDropView.swift
+/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/EnhancedProgressView.swift
+/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/OnboardingView.swift
+/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/PresetsManager.swift
+/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/QuickActionsBar.swift
 /Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/SmartOptimizationView.swift
 /Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/SuccessPopup.swift
 /Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Views/SupportingViews.swift

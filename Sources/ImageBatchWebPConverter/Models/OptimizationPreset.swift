@@ -1,6 +1,6 @@
 import Foundation
 
-public enum OptimizationPreset: String, CaseIterable {
+public enum OptimizationPreset: String, CaseIterable, Codable {
     case maximum = "Maximum Quality"
     case balanced = "Balanced"
     case aggressive = "Aggressive Compression"
