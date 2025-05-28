@@ -19,8 +19,8 @@ struct OnboardingView: View {
         ),
         OnboardingStep(
             image: "speedometer",
-            title: "Lightning Fast",
-            description: "Convert hundreds of images in seconds with our batch processing engine",
+            title: "Files or Folders",
+            description: "Drop individual files or entire folders - choose exactly what you want to convert",
             color: .orange
         ),
         OnboardingStep(

@@ -3,8 +3,8 @@ import UniformTypeIdentifiers
 
 struct DragDropView: View {
     @Binding var inputFolder: URL?
+    @Binding var selectedFiles: [URL]
     @State private var isDragging = false
-    @State private var draggedImages: [URL] = []
     
     var body: some View {
         ZStack {
@@ -42,8 +42,13 @@ struct DragDropView: View {
                     Text("or click to browse")
                         .foregroundColor(.secondary)
                     
-                    if !draggedImages.isEmpty {
-                        Text("\(draggedImages.count) images ready")
+                    if !selectedFiles.isEmpty {
+                        Text("\(selectedFiles.count) files selected")
+                            .font(.caption)
+                            .foregroundColor(.green)
+                            .padding(.top, 4)
+                    } else if inputFolder != nil {
+                        Text("Folder selected")
                             .font(.caption)
                             .foregroundColor(.green)
                             .padding(.top, 4)
@@ -52,13 +57,13 @@ struct DragDropView: View {
                 
                 // Quick action buttons
                 HStack(spacing: 12) {
-                    Button(action: selectPhotosLibrary) {
-                        Label("Photos Library", systemImage: "photo.on.rectangle")
+                    Button(action: selectFiles) {
+                        Label("Select Files", systemImage: "doc.on.doc")
                     }
                     .buttonStyle(.bordered)
                     
-                    Button(action: selectDesktop) {
-                        Label("Desktop", systemImage: "desktopcomputer")
+                    Button(action: selectFolder) {
+                        Label("Select Folder", systemImage: "folder")
                     }
                     .buttonStyle(.bordered)
                 }
@@ -73,30 +78,46 @@ struct DragDropView: View {
             return true
         }
         .onTapGesture {
-            selectFolder()
+            selectFiles()
         }
     }
     
     private func handleDrop(providers: [NSItemProvider]) {
+        var droppedFiles: [URL] = []
+        var droppedFolder: URL? = nil
+        
+        let group = DispatchGroup()
+        
         for provider in providers {
+            group.enter()
             provider.loadItem(forTypeIdentifier: UTType.fileURL.identifier, options: nil) { item, error in
+                defer { group.leave() }
+                
                 if let data = item as? Data,
                    let url = URL(dataRepresentation: data, relativeTo: nil) {
-                    DispatchQueue.main.async {
-                        // Check if it's a directory
-                        var isDirectory: ObjCBool = false
-                        if FileManager.default.fileExists(atPath: url.path, isDirectory: &isDirectory) {
-                            if isDirectory.boolValue {
-                                self.inputFolder = url
-                            } else if isImageFile(url) {
-                                // Handle individual image files
-                                self.draggedImages.append(url)
-                                // Set parent directory as input folder
-                                self.inputFolder = url.deletingLastPathComponent()
-                            }
+                    
+                    var isDirectory: ObjCBool = false
+                    if FileManager.default.fileExists(atPath: url.path, isDirectory: &isDirectory) {
+                        if isDirectory.boolValue {
+                            droppedFolder = url
+                        } else if isImageFile(url) {
+                            droppedFiles.append(url)
                         }
                     }
                 }
+            }
+        }
+        
+        group.notify(queue: .main) {
+            // Clear previous selection
+            self.selectedFiles = []
+            self.inputFolder = nil
+            
+            // Prioritize folder if both files and folder are dropped
+            if let folder = droppedFolder {
+                self.inputFolder = folder
+            } else if !droppedFiles.isEmpty {
+                self.selectedFiles = droppedFiles
             }
         }
     }
@@ -104,6 +125,23 @@ struct DragDropView: View {
     private func isImageFile(_ url: URL) -> Bool {
         let imageExtensions = ["jpg", "jpeg", "png", "bmp", "tif", "tiff", "heic", "webp"]
         return imageExtensions.contains(url.pathExtension.lowercased())
+    }
+    
+    private func selectFiles() {
+        let panel = NSOpenPanel()
+        panel.canChooseDirectories = false
+        panel.canChooseFiles = true
+        panel.allowsMultipleSelection = true
+        panel.allowedContentTypes = [.jpeg, .png, .bmp, .tiff, .heic]
+        panel.message = "Select image files to convert"
+        
+        panel.begin { response in
+            if response == .OK {
+                // Clear folder selection when files are selected
+                self.inputFolder = nil
+                self.selectedFiles = panel.urls
+            }
+        }
     }
     
     private func selectFolder() {
@@ -115,20 +153,10 @@ struct DragDropView: View {
         
         panel.begin { response in
             if response == .OK {
+                // Clear file selection when folder is selected
+                self.selectedFiles = []
                 self.inputFolder = panel.url
             }
-        }
-    }
-    
-    private func selectPhotosLibrary() {
-        if let photosURL = FileManager.default.urls(for: .picturesDirectory, in: .userDomainMask).first {
-            inputFolder = photosURL
-        }
-    }
-    
-    private func selectDesktop() {
-        if let desktopURL = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask).first {
-            inputFolder = desktopURL
         }
     }
 } 

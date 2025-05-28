@@ -8,12 +8,13 @@ import Components
 struct ContentView: View {
     
     @State private var inputFolder: URL?       = nil
+    @State private var selectedFiles: [URL]   = []  // New: track individual files
     @State private var outputFolder: URL?      = nil
     @State private var widthString: String     = "1600" // default width
     @State private var isConverting: Bool      = false
     @State private var statusMessage: String   = ""
     @State private var progress: Double = 0
-    @State private var isSmartMode: Bool = false
+    @State private var isSmartMode: Bool = true  // AI ON by default
     @State private var targetFileSize: Double = 500 // KB
     @State private var optimizationPreset: OptimizationPreset = .balanced
     @State private var showComparison: Bool = false
@@ -33,6 +34,29 @@ struct ContentView: View {
     @State private var showSuccessPopup = false
     @State private var comparisonMode: ComparisonMode = .sideBySide
     @StateObject private var windowManager = WindowManager.shared
+    @State private var showAdvancedSettings = false  // New state for UI simplification
+    
+    // Computed property to determine if we're in file mode or folder mode
+    private var isFileMode: Bool {
+        !selectedFiles.isEmpty
+    }
+    
+    private var hasInput: Bool {
+        inputFolder != nil || !selectedFiles.isEmpty
+    }
+    
+    // Helper to get a display name for the input
+    private var inputDisplayName: String {
+        if isFileMode {
+            if selectedFiles.count == 1 {
+                return selectedFiles.first?.lastPathComponent ?? "Unknown file"
+            } else {
+                return "\(selectedFiles.count) files"
+            }
+        } else {
+            return inputFolder?.lastPathComponent ?? "No folder selected"
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -84,51 +108,118 @@ struct ContentView: View {
                         .offset(y: showLaunchAnimation ? -20 : 0)
                     
                     // Input/Output section
-                    SectionView("File Settings") {
-                        VStack(spacing: 16) {
-                            FolderSelectionRow(
-                                label: "Input Folder",
-                                folder: inputFolder,
-                                action: { selectFolder(forInput: true) }
-                            )
-                            
-                            Divider()
-                            
-                            FolderSelectionRow(
-                                label: "Output Folder",
-                                folder: outputFolder,
-                                action: { selectFolder(forInput: false) }
-                            )
+                    if inputFolder == nil && selectedFiles.isEmpty {
+                        DragDropView(inputFolder: $inputFolder, selectedFiles: $selectedFiles)
+                            .opacity(showLaunchAnimation ? 0 : 1)
+                            .offset(y: showLaunchAnimation ? 20 : 0)
+                            .onChange(of: inputFolder) { newValue in
+                                // Auto-set output folder when input is selected
+                                if let input = newValue, outputFolder == nil {
+                                    outputFolder = input.deletingLastPathComponent()
+                                        .appendingPathComponent("\(input.lastPathComponent)-optimized")
+                                }
+                            }
+                            .onChange(of: selectedFiles) { newValue in
+                                // Auto-set output folder when files are selected
+                                if !newValue.isEmpty, outputFolder == nil {
+                                    if let firstFile = newValue.first {
+                                        outputFolder = firstFile.deletingLastPathComponent()
+                                            .appendingPathComponent("optimized-images")
+                                    }
+                                }
+                            }
+                    } else {
+                        SectionView("Files") {
+                            VStack(spacing: 12) {
+                                // Show selected folders in compact view
+                                HStack {
+                                    Image(systemName: isFileMode ? "doc.on.doc.fill" : "folder.fill")
+                                        .foregroundColor(.blue)
+                                    VStack(alignment: .leading) {
+                                        Text("Input: \(inputDisplayName)")
+                                            .font(.caption)
+                                        Text("Output: \(outputFolder?.lastPathComponent ?? "Auto-created")")
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    Spacer()
+                                    Button("Change") {
+                                        inputFolder = nil
+                                        selectedFiles = []
+                                        outputFolder = nil
+                                    }
+                                    .buttonStyle(.bordered)
+                                }
+                            }
                         }
+                        .opacity(showLaunchAnimation ? 0 : 1)
+                        .offset(y: showLaunchAnimation ? 20 : 0)
                     }
-                    .opacity(showLaunchAnimation ? 0 : 1)
-                    .offset(y: showLaunchAnimation ? 20 : 0)
                     
                     // Image settings section
-                    SectionView("Image Settings") {
-                        VStack(spacing: 20) {
-                            // Width control
+                    SectionView("Optimization") {
+                        VStack(spacing: 16) {
+                            // AI status indicator
                             HStack {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("Target Width")
-                                        .font(.subheadline)
+                                Image(systemName: "sparkles")
+                                    .font(.title2)
+                                    .foregroundStyle(.blue.gradient)
+                                VStack(alignment: .leading) {
+                                    Text("AI Optimization Active")
+                                        .font(.headline)
+                                    Text("Using \(optimizationPreset.name) preset")
+                                        .font(.caption)
                                         .foregroundColor(.secondary)
-                                    TextField("1600", text: $widthString)
-                                        .textFieldStyle(.roundedBorder)
-                                        .frame(width: 100)
                                 }
-                                
                                 Spacer()
+                                
+                                // Quick preset selector
+                                Menu {
+                                    ForEach(OptimizationPreset.allCases, id: \.self) { preset in
+                                        Button(preset.name) {
+                                            optimizationPreset = preset
+                                        }
+                                    }
+                                } label: {
+                                    Image(systemName: "ellipsis.circle")
+                                }
                             }
                             
-                            Divider()
-                            
-                            // Smart optimization
-                            SmartOptimizationView(
-                                isEnabled: $isSmartMode,
-                                preset: $optimizationPreset,
-                                targetFileSize: $targetFileSize
-                            )
+                            // Advanced toggle
+                            DisclosureGroup("Advanced Settings", isExpanded: $showAdvancedSettings) {
+                                VStack(spacing: 12) {
+                                    // Width control
+                                    HStack {
+                                        Text("Target Width")
+                                            .font(.caption)
+                                        TextField("1600", text: $widthString)
+                                            .textFieldStyle(.roundedBorder)
+                                            .frame(width: 80)
+                                        Text("pixels")
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    
+                                    // Smart mode toggle (hidden by default)
+                                    Toggle("Smart Mode", isOn: $isSmartMode)
+                                        .font(.caption)
+                                    
+                                    // Custom file size
+                                    if optimizationPreset == .custom {
+                                        HStack {
+                                            Text("Target Size")
+                                                .font(.caption)
+                                            TextField("500", value: $targetFileSize, format: .number)
+                                                .textFieldStyle(.roundedBorder)
+                                                .frame(width: 80)
+                                            Text("KB")
+                                                .font(.caption)
+                                                .foregroundColor(.secondary)
+                                        }
+                                    }
+                                }
+                                .padding(.top, 8)
+                            }
                         }
                     }
                     .opacity(showLaunchAnimation ? 0 : 1)
@@ -151,10 +242,10 @@ struct ContentView: View {
                             } else {
                                 Image(systemName: "wand.and.stars")
                             }
-                            Text(isConverting ? "Converting..." : "Convert Images")
+                            Text(isConverting ? "Optimizing with AI..." : "Optimize Images")
                         }
                         .buttonStyle(PrimaryButtonStyle())
-                        .disabled(isConverting || inputFolder == nil || outputFolder == nil)
+                        .disabled(isConverting || !hasInput)
                         .frame(maxWidth: .infinity)
                         
                         // Progress bar
@@ -211,6 +302,13 @@ struct ContentView: View {
             withAnimation(.easeOut(duration: 0.6)) {
                 showLaunchAnimation = false
             }
+        }
+        .sheet(isPresented: $showSuccessPopup) {
+            SuccessPopup(
+                imagesCount: processedImages.count,
+                totalSaved: totalSpaceSaved,
+                isPresented: $showSuccessPopup
+            )
         }
     }
     
@@ -291,64 +389,111 @@ struct ContentView: View {
             }
         }
         
-        guard let inFolder = inputFolder,
-              let outFolder = outputFolder else {
-            return
-        }
+        // Determine images to process
+        let imagesToProcess: [URL]
+        let baseOutputFolder: URL
         
-        // Make sure the user typed a valid integer
-        guard let targetWidth = Int(widthString), targetWidth > 0 else {
-            statusMessage.append("[ERROR] Invalid width: \(widthString)\n")
-            return
-        }
-        
-        guard let cwebpPath = findCWebP() else {
-            statusMessage.append("[ERROR] cwebp not found. The bundled converter is missing or inaccessible.\n")
-            return
-        }
-        
-        isConverting = true
-        statusMessage = "Starting conversion...\n"
-        var results: [(quality: Int, size: Double)] = []
-        var savedSpace: Int64 = 0
-        
-        do {
-            // 1) Get all image files in input folder
-            let fileManager = FileManager.default
-            let items = try fileManager.contentsOfDirectory(at: inFolder,
-                                                          includingPropertiesForKeys: nil,
-                                                          options: [.skipsHiddenFiles])
+        if isFileMode {
+            // File mode: process only selected files
+            imagesToProcess = selectedFiles
             
-            // Filter out common image extensions
-            let imageExtensions = ["jpg", "jpeg", "png", "bmp", "tif", "tiff"]
-            let images = items.filter { url in
-                imageExtensions.contains(url.pathExtension.lowercased())
-            }
-            
-            if images.isEmpty {
+            // Create output folder based on first file's location
+            if let firstFile = selectedFiles.first {
+                baseOutputFolder = outputFolder ?? firstFile.deletingLastPathComponent()
+                    .appendingPathComponent("optimized-images")
+            } else {
                 await MainActor.run {
-                    self.statusMessage.append("No images found in folder.\n")
+                    self.statusMessage.append("[ERROR] No files selected.\n")
+                    self.isConverting = false
+                }
+                return
+            }
+        } else {
+            // Folder mode: process all images in the folder
+            guard let inFolder = inputFolder else {
+                await MainActor.run {
+                    self.statusMessage.append("[ERROR] No input folder selected.\n")
                     self.isConverting = false
                 }
                 return
             }
             
-            // 2) Create output folder if not existing
-            if !fileManager.fileExists(atPath: outFolder.path) {
-                try fileManager.createDirectory(at: outFolder, 
+            // Auto-create output folder if not set
+            baseOutputFolder = outputFolder ?? inFolder.deletingLastPathComponent()
+                .appendingPathComponent("\(inFolder.lastPathComponent)-optimized")
+            
+            // Get all image files in input folder
+            do {
+                let fileManager = FileManager.default
+                let items = try fileManager.contentsOfDirectory(at: inFolder,
+                                                              includingPropertiesForKeys: nil,
+                                                              options: [.skipsHiddenFiles])
+                
+                // Filter out common image extensions
+                let imageExtensions = ["jpg", "jpeg", "png", "bmp", "tif", "tiff"]
+                imagesToProcess = items.filter { url in
+                    imageExtensions.contains(url.pathExtension.lowercased())
+                }
+            } catch {
+                await MainActor.run {
+                    self.statusMessage.append("Error reading folder: \(error.localizedDescription)\n")
+                    self.isConverting = false
+                }
+                return
+            }
+        }
+        
+        if imagesToProcess.isEmpty {
+            await MainActor.run {
+                self.statusMessage.append("No images found to process.\n")
+                self.isConverting = false
+            }
+            return
+        }
+        
+        // Make sure the user typed a valid integer
+        guard let targetWidth = Int(widthString), targetWidth > 0 else {
+            await MainActor.run {
+                self.statusMessage.append("[ERROR] Invalid width: \(widthString)\n")
+                self.isConverting = false
+            }
+            return
+        }
+        
+        guard let cwebpPath = findCWebP() else {
+            await MainActor.run {
+                self.statusMessage.append("[ERROR] cwebp not found. The bundled converter is missing or inaccessible.\n")
+                self.isConverting = false
+            }
+            return
+        }
+        
+        isConverting = true
+        await MainActor.run {
+            self.statusMessage = "🚀 Starting AI-powered optimization...\n"
+        }
+        
+        var results: [(quality: Int, size: Double)] = []
+        var savedSpace: Int64 = 0
+        
+        do {
+            // Create output folder if not existing
+            let fileManager = FileManager.default
+            if !fileManager.fileExists(atPath: baseOutputFolder.path) {
+                try fileManager.createDirectory(at: baseOutputFolder, 
                                                 withIntermediateDirectories: true)
             }
             
-            // 3) Process each image
-            for (index, imgURL) in images.enumerated() {
+            // Process each image
+            for (index, imgURL) in imagesToProcess.enumerated() {
                 let filename = imgURL.lastPathComponent
                 // remove extension
                 let baseName = filename.split(separator: ".").dropLast().joined(separator: ".")
                 
-                let outWebpURL = outFolder.appendingPathComponent("\(baseName).webp")
+                let outWebpURL = baseOutputFolder.appendingPathComponent("\(baseName).webp")
                 
                 // a) Create a temporary file for resized JPEG
-                //    because sips can’t directly output .webp
+                //    because sips can't directly output .webp
                 let tmpResizedURL = URL(fileURLWithPath: NSTemporaryDirectory())
                     .appendingPathComponent("\(baseName)_temp_\(UUID().uuidString).jpg")
                 
@@ -370,19 +515,19 @@ struct ContentView: View {
                     results.append(result)
                     
                     // Calculate saved space
-                    if let originalSize = try? FileManager.default.attributesOfItem(atPath: tmpResizedURL.path)[FileAttributeKey.size] as? Int64,
+                    if let originalSize = try? FileManager.default.attributesOfItem(atPath: imgURL.path)[FileAttributeKey.size] as? Int64,
                        let optimizedSize = try? FileManager.default.attributesOfItem(atPath: outWebpURL.path)[FileAttributeKey.size] as? Int64 {
                         savedSpace += (originalSize - optimizedSize)
-                    }
-                    
-                    await MainActor.run {
-                        self.statusMessage.append("""
-                            [\(index+1)/\(images.count)] Optimized: \(filename)
-                            • Quality: \(result.quality)
-                            • Size: \(result.size.formatFileSize())
-                            
-                            """)
-                        self.progress = Double(index + 1) / Double(images.count)
+                        
+                        await MainActor.run {
+                            self.statusMessage.append("""
+                                ✅ [\(index+1)/\(imagesToProcess.count)] \(filename)
+                                • AI Quality: \(result.quality)
+                                • Saved: \(Int64.calculateReduction(original: originalSize, optimized: optimizedSize))%
+                                
+                                """)
+                            self.progress = Double(index + 1) / Double(imagesToProcess.count)
+                        }
                     }
                 } else {
                     // Original conversion code
@@ -393,11 +538,11 @@ struct ContentView: View {
                     // Original status update
                     await MainActor.run {
                         self.statusMessage.append("""
-                            [\(index+1)/\(images.count)] Processed: \(filename) -> \(outWebpURL.lastPathComponent)\n
+                            [\(index+1)/\(imagesToProcess.count)] Processed: \(filename) -> \(outWebpURL.lastPathComponent)\n
                             \(resizeResult.isEmpty ? "" : " sips output: \(resizeResult)\n")
                             \(webpResult.isEmpty ? "" : " cwebp output: \(webpResult)\n")
                             """)
-                        self.progress = Double(index + 1) / Double(images.count)
+                        self.progress = Double(index + 1) / Double(imagesToProcess.count)
                     }
                 }
                 
@@ -421,7 +566,9 @@ struct ContentView: View {
             }
             
             await trackOptimizationResults(results)
-            isConverting = false
+            await MainActor.run {
+                self.isConverting = false
+            }
             
         } catch {
             await MainActor.run {
@@ -621,10 +768,11 @@ struct ContentView: View {
         await MainActor.run {
             self.statusMessage.append("""
                 
-                Optimization Summary:
-                • Average Quality: \(avgQuality)
+                🎉 Optimization Complete!
+                • AI Quality: \(avgQuality)
                 • Average Size: \(avgCompression.formatFileSize())
-                • Images Processed: \(results.count)
+                • Images Optimized: \(results.count)
+                • Total Space Saved: \(Double(self.totalSpaceSaved).formatFileSize())
                 
                 """)
         }
