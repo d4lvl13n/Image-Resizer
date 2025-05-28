@@ -8,5 +8,8 @@ struct ImageBatchWebPConverterApp: App {
         WindowGroup {
             ContentView()
         }
+        .commands {
+            AppMenu()
+        }
     }
 } 

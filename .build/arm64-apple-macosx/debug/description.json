@@ -99,7 +99,7 @@
       ],
       "otherArguments" : [
         "-target",
-        "arm64-apple-macosx12.0",
+        "arm64-apple-macosx13.0",
         "-enable-batch-mode",
         "-index-store-path",
         "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/index/store",
@@ -138,7 +138,9 @@
         "-Xcc",
         "-fPIC",
         "-Xcc",
-        "-g"
+        "-g",
+        "-package-name",
+        "imagebatchwebpconverter"
       ],
       "outputFileMapPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Components.build/output-file-map.json",
       "outputs" : [
@@ -295,7 +297,7 @@
       ],
       "otherArguments" : [
         "-target",
-        "arm64-apple-macosx12.0",
+        "arm64-apple-macosx13.0",
         "-enable-batch-mode",
         "-index-store-path",
         "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/index/store",
@@ -334,7 +336,9 @@
         "-Xcc",
         "-fPIC",
         "-Xcc",
-        "-g"
+        "-g",
+        "-package-name",
+        "imagebatchwebpconverter"
       ],
       "outputFileMapPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/ImageBatchWebPConverter.build/output-file-map.json",
       "outputs" : [
@@ -450,7 +454,7 @@
       ],
       "otherArguments" : [
         "-target",
-        "arm64-apple-macosx12.0",
+        "arm64-apple-macosx13.0",
         "-enable-batch-mode",
         "-index-store-path",
         "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/index/store",
@@ -489,7 +493,9 @@
         "-Xcc",
         "-fPIC",
         "-Xcc",
-        "-g"
+        "-g",
+        "-package-name",
+        "imagebatchwebpconverter"
       ],
       "outputFileMapPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Models.build/output-file-map.json",
       "outputs" : [
@@ -584,7 +590,7 @@
       ],
       "otherArguments" : [
         "-target",
-        "arm64-apple-macosx12.0",
+        "arm64-apple-macosx13.0",
         "-enable-batch-mode",
         "-index-store-path",
         "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/index/store",
@@ -623,7 +629,9 @@
         "-Xcc",
         "-fPIC",
         "-Xcc",
-        "-g"
+        "-g",
+        "-package-name",
+        "imagebatchwebpconverter"
       ],
       "outputFileMapPath" : "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Utils.build/output-file-map.json",
       "outputs" : [
@@ -687,6 +695,8 @@
       "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
       "-module-name",
       "Components",
+      "-package-name",
+      "imagebatchwebpconverter",
       "-incremental",
       "-c",
       "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Components/AnalysisMetricsBar.swift",
@@ -700,7 +710,7 @@
       "-I",
       "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules",
       "-target",
-      "arm64-apple-macosx12.0",
+      "arm64-apple-macosx13.0",
       "-enable-batch-mode",
       "-index-store-path",
       "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/index/store",
@@ -740,6 +750,8 @@
       "-fPIC",
       "-Xcc",
       "-g",
+      "-package-name",
+      "imagebatchwebpconverter",
       "-driver-use-frontend-path",
       "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
     ],
@@ -747,6 +759,8 @@
       "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
       "-module-name",
       "ImageBatchWebPConverter",
+      "-package-name",
+      "imagebatchwebpconverter",
       "-incremental",
       "-c",
       "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/App.swift",
@@ -765,7 +779,7 @@
       "-I",
       "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules",
       "-target",
-      "arm64-apple-macosx12.0",
+      "arm64-apple-macosx13.0",
       "-enable-batch-mode",
       "-index-store-path",
       "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/index/store",
@@ -805,6 +819,8 @@
       "-fPIC",
       "-Xcc",
       "-g",
+      "-package-name",
+      "imagebatchwebpconverter",
       "-driver-use-frontend-path",
       "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
     ],
@@ -812,6 +828,8 @@
       "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
       "-module-name",
       "Models",
+      "-package-name",
+      "imagebatchwebpconverter",
       "-incremental",
       "-c",
       "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Models/ComparisonMode.swift",
@@ -820,7 +838,7 @@
       "-I",
       "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules",
       "-target",
-      "arm64-apple-macosx12.0",
+      "arm64-apple-macosx13.0",
       "-enable-batch-mode",
       "-index-store-path",
       "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/index/store",
@@ -860,6 +878,8 @@
       "-fPIC",
       "-Xcc",
       "-g",
+      "-package-name",
+      "imagebatchwebpconverter",
       "-driver-use-frontend-path",
       "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
     ],
@@ -867,6 +887,8 @@
       "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
       "-module-name",
       "Utils",
+      "-package-name",
+      "imagebatchwebpconverter",
       "-incremental",
       "-c",
       "/Users/damienlarquey/ImageBatchWebPConverter/Sources/ImageBatchWebPConverter/Utils/ColorAnalyzer.swift",
@@ -880,7 +902,7 @@
       "-I",
       "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/Modules",
       "-target",
-      "arm64-apple-macosx12.0",
+      "arm64-apple-macosx13.0",
       "-enable-batch-mode",
       "-index-store-path",
       "/Users/damienlarquey/ImageBatchWebPConverter/.build/arm64-apple-macosx/debug/index/store",
@@ -920,6 +942,8 @@
       "-fPIC",
       "-Xcc",
       "-g",
+      "-package-name",
+      "imagebatchwebpconverter",
       "-driver-use-frontend-path",
       "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
     ]
