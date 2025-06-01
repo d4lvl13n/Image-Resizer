@@ -34,7 +34,8 @@ struct ContentView: View {
     @State private var showSuccessPopup = false
     @State private var comparisonMode: ComparisonMode = .sideBySide
     @StateObject private var windowManager = WindowManager.shared
-    @State private var showAdvancedSettings = false  // New state for UI simplification
+    @State private var showProMode = false  // Pro mode for advanced settings
+    @State private var hoveredCard: String? = nil
     
     // Computed property to determine if we're in file mode or folder mode
     private var isFileMode: Bool {
@@ -59,221 +60,56 @@ struct ContentView: View {
     }
     
     var body: some View {
-        NavigationView {
-            // Sidebar
-            VStack(spacing: 16) {
-                // History header
-                HStack {
-                    Label("History", systemImage: "clock.fill")
-                        .font(.headline)
-                    Spacer()
-                    Button(action: { processedImages.removeAll() }) {
-                        Label("Clear", systemImage: "trash")
-                            .font(.caption)
-                    }
-                    .buttonStyle(.plain)
-                    .opacity(processedImages.isEmpty ? 0.5 : 1)
-                    .disabled(processedImages.isEmpty)
-                }
-                .padding()
+        GeometryReader { geometry in
+            ZStack {
+                // Modern gradient background
+                LinearGradient(
+                    colors: [
+                        Color(NSColor.windowBackgroundColor),
+                        Color(NSColor.windowBackgroundColor).opacity(0.95),
+                        Color(NSColor.controlBackgroundColor).opacity(0.3)
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                .ignoresSafeArea()
                 
-                // History list
-                List {
-                    if processedImages.isEmpty {
-                        Text("No processed images")
-                            .foregroundColor(.secondary)
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .listRowBackground(Color.clear)
-                    } else {
-                        ForEach(processedImages.indices, id: \.self) { index in
-                            HistoryItemView(
-                                image: processedImages[index],
-                                index: index,
-                                action: { showComparison(for: index) }
-                            )
-                        }
-                    }
+                if hasInput {
+                    // Processing Interface
+                    processingInterface
+                        .transition(.asymmetric(
+                            insertion: .move(edge: .trailing).combined(with: .opacity),
+                            removal: .move(edge: .leading).combined(with: .opacity)
+                        ))
+                } else {
+                    // Hero Landing Interface
+                    heroInterface
+                        .transition(.asymmetric(
+                            insertion: .move(edge: .leading).combined(with: .opacity),
+                            removal: .move(edge: .trailing).combined(with: .opacity)
+                        ))
                 }
-                .listStyle(.plain)
-            }
-            .frame(minWidth: 250, maxWidth: 300)
-            .background(Color(NSColor.controlBackgroundColor))
-            
-            // Main content
-            ScrollView {
-                VStack(spacing: 24) {
-                    HeaderView()
-                        .scaleEffect(showLaunchAnimation ? 0.8 : 1)
-                        .opacity(showLaunchAnimation ? 0 : 1)
-                        .offset(y: showLaunchAnimation ? -20 : 0)
-                    
-                    // Input/Output section
-                    if inputFolder == nil && selectedFiles.isEmpty {
-                        DragDropView(inputFolder: $inputFolder, selectedFiles: $selectedFiles)
-                            .opacity(showLaunchAnimation ? 0 : 1)
-                            .offset(y: showLaunchAnimation ? 20 : 0)
-                            .onChange(of: inputFolder) { newValue in
-                                // Auto-set output folder when input is selected
-                                if let input = newValue, outputFolder == nil {
-                                    outputFolder = input.deletingLastPathComponent()
-                                        .appendingPathComponent("\(input.lastPathComponent)-optimized")
-                                }
-                            }
-                            .onChange(of: selectedFiles) { newValue in
-                                // Auto-set output folder when files are selected
-                                if !newValue.isEmpty, outputFolder == nil {
-                                    if let firstFile = newValue.first {
-                                        outputFolder = firstFile.deletingLastPathComponent()
-                                            .appendingPathComponent("optimized-images")
-                                    }
-                                }
-                            }
-                    } else {
-                        SectionView("Files") {
-                            VStack(spacing: 12) {
-                                // Show selected folders in compact view
-                                HStack {
-                                    Image(systemName: isFileMode ? "doc.on.doc.fill" : "folder.fill")
-                                        .foregroundColor(.blue)
-                                    VStack(alignment: .leading) {
-                                        Text("Input: \(inputDisplayName)")
-                                            .font(.caption)
-                                        Text("Output: \(outputFolder?.lastPathComponent ?? "Auto-created")")
-                                            .font(.caption)
-                                            .foregroundColor(.secondary)
-                                    }
-                                    Spacer()
-                                    Button("Change") {
-                                        inputFolder = nil
-                                        selectedFiles = []
-                                        outputFolder = nil
-                                    }
-                                    .buttonStyle(.bordered)
-                                }
-                            }
-                        }
-                        .opacity(showLaunchAnimation ? 0 : 1)
-                        .offset(y: showLaunchAnimation ? 20 : 0)
-                    }
-                    
-                    // Image settings section
-                    SectionView("Optimization") {
-                        VStack(spacing: 16) {
-                            // AI status indicator
-                            HStack {
-                                Image(systemName: "sparkles")
-                                    .font(.title2)
-                                    .foregroundStyle(.blue.gradient)
-                                VStack(alignment: .leading) {
-                                    Text("AI Optimization Active")
-                                        .font(.headline)
-                                    Text("Using \(optimizationPreset.name) preset")
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
-                                }
-                                Spacer()
-                                
-                                // Quick preset selector
-                                Menu {
-                                    ForEach(OptimizationPreset.allCases, id: \.self) { preset in
-                                        Button(preset.name) {
-                                            optimizationPreset = preset
-                                        }
-                                    }
-                                } label: {
-                                    Image(systemName: "ellipsis.circle")
-                                }
-                            }
-                            
-                            // Advanced toggle
-                            DisclosureGroup("Advanced Settings", isExpanded: $showAdvancedSettings) {
-                                VStack(spacing: 12) {
-                                    // Width control
-                                    HStack {
-                                        Text("Target Width")
-                                            .font(.caption)
-                                        TextField("1600", text: $widthString)
-                                            .textFieldStyle(.roundedBorder)
-                                            .frame(width: 80)
-                                        Text("pixels")
-                                            .font(.caption)
-                                            .foregroundColor(.secondary)
-                                    }
-                                    
-                                    // Smart mode toggle (hidden by default)
-                                    Toggle("Smart Mode", isOn: $isSmartMode)
-                                        .font(.caption)
-                                    
-                                    // Custom file size
-                                    if optimizationPreset == .custom {
-                                        HStack {
-                                            Text("Target Size")
-                                                .font(.caption)
-                                            TextField("500", value: $targetFileSize, format: .number)
-                                                .textFieldStyle(.roundedBorder)
-                                                .frame(width: 80)
-                                            Text("KB")
-                                                .font(.caption)
-                                                .foregroundColor(.secondary)
-                                        }
-                                    }
-                                }
-                                .padding(.top, 8)
-                            }
+                
+                // Floating History Panel (always visible if has history)
+                if !processedImages.isEmpty {
+                    VStack {
+                        Spacer()
+                        HStack {
+                            historyPanel
+                                .transition(.move(edge: .bottom).combined(with: .opacity))
+                            Spacer()
                         }
                     }
-                    .opacity(showLaunchAnimation ? 0 : 1)
-                    .offset(y: showLaunchAnimation ? 20 : 0)
-                    
-                    // Action section
-                    VStack(spacing: 16) {
-                        // Convert button
-                        Button(action: {
-                            Task {
-                                isConverting = true
-                                await startConversion(isFinalResult: true)
-                                isConverting = false
-                            }
-                        }) {
-                            if isConverting {
-                                ProgressView()
-                                    .scaleEffect(0.8)
-                                    .frame(width: 16, height: 16)
-                            } else {
-                                Image(systemName: "wand.and.stars")
-                            }
-                            Text(isConverting ? "Optimizing with AI..." : "Optimize Images")
-                        }
-                        .buttonStyle(PrimaryButtonStyle())
-                        .disabled(isConverting || !hasInput)
-                        .frame(maxWidth: .infinity)
-                        
-                        // Progress bar
-                        if isConverting {
-                            ProgressView(value: progress)
-                                .progressViewStyle(.linear)
-                        }
-                    }
-                    .opacity(showLaunchAnimation ? 0 : 1)
-                    .offset(y: showLaunchAnimation ? 20 : 0)
-                    
-                    // Log section
-                    SectionView("Processing Log") {
-                        ScrollView {
-                            Text(statusMessage)
-                                .font(.system(.body, design: .monospaced))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                        .frame(maxHeight: 200)
-                    }
-                    .opacity(showLaunchAnimation ? 0 : 1)
-                    .offset(y: showLaunchAnimation ? 20 : 0)
+                    .padding()
                 }
-                .padding()
             }
-            .background(Color(NSColor.windowBackgroundColor))
         }
-        .frame(minWidth: 900, minHeight: 600)
+        .navigationTitle("")
+        .onAppear {
+            withAnimation(.easeOut(duration: 0.8).delay(0.2)) {
+                showLaunchAnimation = false
+            }
+        }
         .onChange(of: showComparison) { newValue in
             if newValue, 
                let comparison = currentComparison,
@@ -298,11 +134,6 @@ struct ContentView: View {
                 window.makeKeyAndOrderFront(nil)
             }
         }
-        .onAppear {
-            withAnimation(.easeOut(duration: 0.6)) {
-                showLaunchAnimation = false
-            }
-        }
         .sheet(isPresented: $showSuccessPopup) {
             SuccessPopup(
                 imagesCount: processedImages.count,
@@ -312,53 +143,395 @@ struct ContentView: View {
         }
     }
     
-    // Add method to show comparison for historical images
-    private func showComparison(for index: Int) {
-        let image = processedImages[index]
-        currentComparison = (image.original, image.optimized)
-        currentSizes = (image.originalSize, image.optimizedSize)
-        currentAnalysis = (image.contentType, image.quality)
-        showComparison = true
-    }
-    
-    // Update the optimization completion to store processed images
-    private func storeProcessedImage(
-        original: NSImage,
-        optimized: NSImage,
-        originalSize: Int64,
-        optimizedSize: Int64,
-        quality: Float,
-        contentType: ImageContentType
-    ) async {
-        await MainActor.run {
-            processedImages.append((
-                original: original,
-                optimized: optimized,
-                originalSize: originalSize,
-                optimizedSize: optimizedSize,
-                quality: quality,
-                contentType: contentType
-            ))
+    // MARK: - Hero Interface
+    private var heroInterface: some View {
+        VStack(spacing: 0) {
+            // Hero Header
+            VStack(spacing: 24) {
+                // App Icon & Title
+                HStack(spacing: 16) {
+                    if #available(macOS 14.0, *) {
+                        Image(systemName: "sparkles")
+                            .font(.system(size: 48, weight: .light))
+                            .foregroundStyle(.blue.gradient)
+                            .symbolEffect(.variableColor.iterative, value: showLaunchAnimation)
+                    } else {
+                        Image(systemName: "sparkles")
+                            .font(.system(size: 48, weight: .light))
+                            .foregroundStyle(.blue.gradient)
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("WebP Optimizer")
+                            .font(.system(size: 48, weight: .light, design: .default))
+                        Text("AI-powered image optimization")
+                            .font(.title)
+                            .foregroundColor(.secondary)
+                    }
+                }
+                .opacity(showLaunchAnimation ? 0 : 1)
+                .offset(y: showLaunchAnimation ? -30 : 0)
+                
+                // Stats Cards
+                HStack(spacing: 20) {
+                    statsCard("Processed", "\(processedImages.count)", "photo.stack")
+                    statsCard("Saved", Double(totalSpaceSaved).formatFileSize(), "arrow.down.circle")
+                    statsCard("Quality", "AI Optimized", "sparkles")
+                }
+                .opacity(showLaunchAnimation ? 0 : 1)
+                .offset(y: showLaunchAnimation ? 20 : 0)
+            }
+            .padding(.top, 60)
+            .padding(.horizontal, 40)
+            
+            Spacer()
+            
+            // Main Drop Zone
+            modernDragDropZone
+                .padding(.horizontal, 40)
+            
+            Spacer()
         }
     }
     
-    // MARK: - Folder Selection
-    
-    private func selectFolder(forInput: Bool) {
-        let panel = NSOpenPanel()
-        panel.canChooseDirectories = true
-        panel.canChooseFiles = false
-        panel.allowsMultipleSelection = false
-        
-        panel.begin { response in
-            guard response == .OK else { return }
-            if forInput {
-                self.inputFolder = panel.url
-            } else {
-                self.outputFolder = panel.url
+    // MARK: - Processing Interface
+    private var processingInterface: some View {
+        VStack(spacing: 24) {
+            // Header with selected files
+            selectedFilesHeader
+                .padding(.horizontal, 40)
+                .padding(.top, 30)
+            
+            // AI Optimization Panel
+            aiOptimizationPanel
+                .padding(.horizontal, 40)
+            
+            // Action Area
+            actionArea
+                .padding(.horizontal, 40)
+            
+            Spacer()
+            
+            // Processing Log (if converting)
+            if isConverting || !statusMessage.isEmpty {
+                processingLog
+                    .padding(.horizontal, 40)
+                    .padding(.bottom, 30)
             }
         }
     }
+    
+    // MARK: - Components
+    private func statsCard(_ title: String, _ value: String, _ icon: String) -> some View {
+        VStack(spacing: 8) {
+            Image(systemName: icon)
+                .font(.largeTitle)
+                .foregroundColor(.blue)
+            
+            Text(value)
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+            
+            Text(title)
+                .font(.title3)
+                .foregroundColor(.secondary)
+        }
+        .frame(width: 120, height: 100)
+        .background(
+            if #available(macOS 12.0, *) {
+                .regularMaterial
+            } else {
+                Color(NSColor.controlBackgroundColor)
+            }, in: RoundedRectangle(cornerRadius: 12)
+        )
+    }
+    
+    private var modernDragDropZone: some View {
+        DragDropView(inputFolder: $inputFolder, selectedFiles: $selectedFiles)
+            .scaleEffect(showLaunchAnimation ? 0.9 : 1.0)
+            .opacity(showLaunchAnimation ? 0 : 1)
+            .onChange(of: inputFolder) { newValue in
+                withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                    if let input = newValue, outputFolder == nil {
+                        outputFolder = input.deletingLastPathComponent()
+                            .appendingPathComponent("\(input.lastPathComponent)-optimized")
+                    }
+                }
+            }
+            .onChange(of: selectedFiles) { newValue in
+                withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                    if !newValue.isEmpty, outputFolder == nil {
+                        if let firstFile = newValue.first {
+                            outputFolder = firstFile.deletingLastPathComponent()
+                                .appendingPathComponent("optimized-images")
+                        }
+                    }
+                }
+            }
+    }
+    
+    private var selectedFilesHeader: some View {
+        HStack {
+            Button(action: {
+                withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                    inputFolder = nil
+                    selectedFiles = []
+                    outputFolder = nil
+                }
+            }) {
+                Image(systemName: "chevron.left")
+                    .font(.title2)
+                    .foregroundColor(.blue)
+            }
+            .buttonStyle(.plain)
+            
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Ready to Optimize")
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                
+                HStack(spacing: 8) {
+                    Image(systemName: isFileMode ? "doc.on.doc.fill" : "folder.fill")
+                        .foregroundColor(.blue)
+                    Text(inputDisplayName)
+                        .foregroundColor(.secondary)
+                }
+                .font(.title3)
+            }
+            
+            Spacer()
+        }
+    }
+    
+    private var aiOptimizationPanel: some View {
+        VStack(spacing: 16) {
+            // AI Status
+            HStack {
+                HStack(spacing: 12) {
+                    if #available(macOS 14.0, *) {
+                        Image(systemName: "sparkles")
+                            .font(.title2)
+                            .foregroundStyle(.blue.gradient)
+                            .symbolEffect(.variableColor.iterative.reversing, value: isSmartMode)
+                    } else {
+                        Image(systemName: "sparkles")
+                            .font(.title2)
+                            .foregroundStyle(.blue.gradient)
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("AI Optimization")
+                            .font(.title)
+                        Text("\(optimizationPreset.name) preset • Smart quality detection")
+                            .font(.title3)
+                            .foregroundColor(.secondary)
+                    }
+                }
+                
+                Spacer()
+                
+                // Preset Selector
+                Menu {
+                    ForEach(OptimizationPreset.allCases, id: \.self) { preset in
+                        Button(preset.name) {
+                            optimizationPreset = preset
+                        }
+                    }
+                } label: {
+                    Text(optimizationPreset.name)
+                        .font(.subheadline)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(
+                            if #available(macOS 12.0, *) {
+                                .regularMaterial
+                            } else {
+                                Color(NSColor.controlBackgroundColor)
+                            }, in: Capsule()
+                        )
+                }
+                .menuStyle(.borderlessButton)
+            }
+            
+            // Pro Mode Toggle
+            DisclosureGroup("Pro Settings", isExpanded: $showProMode) {
+                VStack(spacing: 12) {
+                    HStack {
+                        Text("Target Width")
+                            .font(.callout)
+                        Spacer()
+                        TextField("1600", text: $widthString)
+                            .textFieldStyle(.roundedBorder)
+                            .frame(width: 80)
+                        Text("px")
+                            .font(.callout)
+                            .foregroundColor(.secondary)
+                    }
+                    
+                    if optimizationPreset == .custom {
+                        HStack {
+                            Text("Target Size")
+                                .font(.callout)
+                            Spacer()
+                            TextField("500", value: $targetFileSize, format: .number)
+                                .textFieldStyle(.roundedBorder)
+                                .frame(width: 80)
+                            Text("KB")
+                                .font(.callout)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                }
+                .padding(.top, 8)
+            }
+            .font(.title3)
+        }
+        .padding(20)
+        .background(
+            if #available(macOS 12.0, *) {
+                .regularMaterial
+            } else {
+                Color(NSColor.controlBackgroundColor)
+            }, in: RoundedRectangle(cornerRadius: 16)
+        )
+    }
+    
+    private var actionArea: some View {
+        Button(action: {
+            Task {
+                isConverting = true
+                await startConversion(isFinalResult: true)
+                isConverting = false
+            }
+        }) {
+            HStack(spacing: 16) {
+                if isConverting {
+                    ProgressView()
+                        .scaleEffect(1.2)
+                        .frame(width: 24, height: 24)
+                } else {
+                    Image(systemName: "wand.and.stars")
+                        .font(.title)
+                }
+                
+                Text(isConverting ? "Optimizing with AI..." : "Start Optimization")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 24)
+        }
+        .background {
+            if isConverting {
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(
+                        if #available(macOS 12.0, *) {
+                            .regularMaterial
+                        } else {
+                            Color(NSColor.controlBackgroundColor)
+                        }
+                    )
+            } else {
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(LinearGradient(colors: [.blue, .blue.opacity(0.8)], startPoint: .topLeading, endPoint: .bottomTrailing))
+            }
+        }
+        .foregroundColor(isConverting ? .primary : .white)
+        .disabled(isConverting)
+        .buttonStyle(.plain)
+        .scaleEffect(isConverting ? 0.98 : 1.0)
+        .animation(.easeInOut(duration: 0.1), value: isConverting)
+    }
+    
+    private var processingLog: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Text("Processing Log")
+                    .font(.title2)
+                Spacer()
+                if isConverting {
+                    ProgressView(value: progress)
+                        .frame(width: 200)
+                }
+            }
+            
+            ScrollView {
+                Text(statusMessage)
+                    .font(.system(.caption, design: .monospaced))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .frame(maxHeight: 120)
+            .padding(12)
+            .background(
+                if #available(macOS 12.0, *) {
+                    .regularMaterial
+                } else {
+                    Color(NSColor.controlBackgroundColor)
+                }, in: RoundedRectangle(cornerRadius: 8)
+            )
+        }
+    }
+    
+    private var historyPanel: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Text("Recent")
+                    .font(.title2)
+                Spacer()
+                Button("View All") {
+                    // Could open a dedicated history window
+                }
+                .font(.subheadline)
+            }
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 12) {
+                    ForEach(processedImages.prefix(5).indices, id: \.self) { index in
+                        historyThumbnail(for: index)
+                    }
+                }
+                .padding(.horizontal, 4)
+            }
+        }
+        .padding(16)
+        .frame(width: 320)
+        .background(
+            if #available(macOS 12.0, *) {
+                .ultraThinMaterial
+            } else {
+                Color(NSColor.windowBackgroundColor)
+            }, in: RoundedRectangle(cornerRadius: 16)
+        )
+    }
+    
+    private func historyThumbnail(for index: Int) -> some View {
+        let image = processedImages[index]
+        
+        return Button(action: { showComparison(for: index) }) {
+            VStack(spacing: 6) {
+                Image(nsImage: image.optimized)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 50, height: 50)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                
+                Text("\(Int64.calculateReduction(original: image.originalSize, optimized: image.optimizedSize))%")
+                    .font(.caption2)
+                    .foregroundColor(.green)
+            }
+        }
+        .buttonStyle(.plain)
+        .scaleEffect(hoveredCard == "history-\(index)" ? 1.05 : 1.0)
+        .onHover { isHovered in
+            withAnimation(.easeInOut(duration: 0.2)) {
+                hoveredCard = isHovered ? "history-\(index)" : nil
+            }
+        }
+    }
+    
+    // MARK: - Quick Actions - REMOVED
+    // Quick actions have been removed to simplify the interface
+    // Users should use drag and drop or click on the drop zone to open finder
     
     // MARK: - Conversion
     

@@ -16,11 +16,38 @@ public struct ImageView: View {
     }
     
     public var body: some View {
-        VStack {
-            Text(label)
-                .font(.headline)
-                .padding()
+        VStack(spacing: 0) {
+            // Modern header with glass morphism
+            HStack {
+                Text(label)
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+                Text(Double(size).formatFileSize())
+                    .font(.callout)
+                    .foregroundColor(.secondary)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
+                    .background(
+                        if #available(macOS 12.0, *) {
+                            Material.regularMaterial
+                        } else {
+                            Color(NSColor.controlBackgroundColor)
+                        }, in: Capsule()
+                    )
+            }
+            .padding(16)
+            .background(
+                if #available(macOS 12.0, *) {
+                    Material.ultraThinMaterial
+                } else {
+                    Color(NSColor.windowBackgroundColor)
+                }
+            )
             
+            // Image container
             GeometryReader { geometry in
                 ScrollView([.horizontal, .vertical]) {
                     Image(nsImage: image)
@@ -30,12 +57,16 @@ public struct ImageView: View {
                             width: geometry.size.width * zoomLevel,
                             height: geometry.size.height * zoomLevel
                         )
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
                 }
+                .background(
+                    if #available(macOS 12.0, *) {
+                        Material.regularMaterial
+                    } else {
+                        Color(NSColor.controlBackgroundColor)
+                    }
+                )
             }
-            
-            Text(Double(size).formatFileSize())
-                .font(.caption)
-                .foregroundColor(.secondary)
         }
     }
 } 
